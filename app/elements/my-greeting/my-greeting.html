@@ -1,0 +1,64 @@
+<!-- Define your custom element -->
+<dom-module id="my-greeting">
+
+  <!--
+
+    `my-greeting` is a sample greeting element that hides itself when the user
+    clicks the button
+
+    Example:
+
+      <my-greeting></my-greeting>
+
+  -->
+
+  <template>
+
+    <style include="shared-styles">
+
+      /*
+        Host element styles
+       */
+      :host {
+        position: relative;
+        display: block;
+      }
+
+    </style>
+
+    <h1>Welcome!</h1>
+
+    <button id="done">Done</button>
+
+  </template>
+
+  <script>
+    (function () {
+      'use strict';
+
+      Polymer({
+        is: 'my-greeting',
+
+        behaviors : [app.behaviors.ui()],
+
+        /**
+         * Element listeners.
+         * @type {Object}
+         */
+        listeners: {
+          'done.click': 'done'
+        },
+
+        /**
+         * Hide the element when completed
+         */
+        done: function() {
+          this.hide(this);
+        }
+
+      });
+
+    })();
+  </script>
+
+</dom-module>

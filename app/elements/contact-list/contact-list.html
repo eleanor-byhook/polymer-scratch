@@ -1,0 +1,83 @@
+<!-- Define your custom element -->
+<dom-module id="contact-list" >
+
+<link rel="import" href="../id-card/id-card.html">
+
+  <!--
+
+    `contact-list` is a sample greeting element that hides itself when the user
+    clicks the button
+
+    Example:
+
+      <contact-list></contact-list>
+
+  -->
+  <template>
+
+  <template is="dom-repeat" items="{{data}}">
+
+    <style include="shared-styles">
+
+      /*
+        Host element styles
+       */
+      :host {
+        position: relative;
+        display: inline-block;
+        border: 1px solid gray;
+        padding: 10px;
+        background-color: cyan;
+      }
+
+    </style>
+  
+    <id-card full-name="{{item.name}}" photo=
+    "{{item.photo}}"></id-card>
+    
+  </template>
+
+  </template>
+
+  <script>
+    (function () {
+      'use strict';
+
+      Polymer({
+        is: 'contact-list',
+
+        ready: function() {
+          this.data = [
+            {name: 'Charlie Hebdo', photo:
+              'http://lorempixel.com/600/400/people'},
+            {name: 'Bruno Walter', photo:
+              'http://lorempixel.com/600/400/nature'},
+            {name: 'Sporty McSportson', photo:
+              'http://lorempixel.com/600/400/sports'}
+            ];
+
+          console.log(this.data);
+        },
+
+
+        behaviors : [app.behaviors.ui()],
+
+        /**
+         * Element listeners.
+         * @type {Object}
+         */
+        listeners: {
+        },
+
+        /**
+         * Hide the element when completed
+         */
+        done: function() {
+        }
+
+      });
+
+    })();
+  </script>
+
+</dom-module>

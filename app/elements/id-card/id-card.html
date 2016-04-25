@@ -1,0 +1,87 @@
+<!-- Define your custom element -->
+<dom-module id="id-card" >
+
+  <!--
+
+    `id-card` is a sample greeting element that hides itself when the user
+    clicks the button
+
+    Example:
+
+      <id-card></id-card>
+
+  -->
+
+  <template>
+
+    <style include="shared-styles">
+
+      /*
+        Host element styles
+       */
+      :host {
+        position: relative;
+        display: inline-block;
+        border: 1px solid gray;
+        margin: 0;
+        margin-left: 15px;
+        padding: 0;
+        background-color: white;
+      }
+      :host h1 {
+        text-align: center;
+        padding-bottom: 3px;
+        margin: 0;
+      }
+      :host iron-image {
+        width:300px; 
+        height:300px; 
+        background-color: lightgray;
+      }
+
+
+    </style>
+
+    <iron-image 
+      sizing="cover" preload fade
+      src={{photo}}>
+    </iron-image>
+
+      <h1>{{fullName}}</h1>
+
+
+  </template>
+
+  <script>
+    (function () {
+      'use strict';
+
+      Polymer({
+        is: 'id-card',
+
+        properties: {
+          fullName: String,
+          photo: String
+        },
+
+        behaviors : [app.behaviors.ui()],
+
+        /**
+         * Element listeners.
+         * @type {Object}
+         */
+        listeners: {
+        },
+
+        /**
+         * Hide the element when completed
+         */
+        done: function() {
+        }
+
+      });
+
+    })();
+  </script>
+
+</dom-module>
